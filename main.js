@@ -60,20 +60,20 @@ const app = new Vue({
 });
 
 let isDropdownPressed = false;
-const navMenu = document.querySelector('nav');
+const navMobile = document.querySelector('.nav-bar__nav-menu');
 const navBtn = document.querySelector('.nav-bar__btn');
 const body = document.body;
 
 navBtn.addEventListener('click', (e) => {
   if (!isDropdownPressed) {
-    navMenu.style.transform = 'translateY(0%)';
     // prevent user from scrolling
     body.style.overflowY = 'hidden';
+    navMobile.classList.add('open');
     navBtn.classList.add('open');
     isDropdownPressed = true;
   } else if (isDropdownPressed) {
-    navMenu.style.transform = 'translateY(-100%)';
     body.style.overflowY = 'unset';
+    navMobile.classList.remove('open');
     navBtn.classList.remove('open');
     isDropdownPressed = false;
   }

@@ -1,10 +1,15 @@
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   align-items: center;
   padding: 24px;
   position: relative;
   z-index: 1;
+
+  @media screen and (min-width: 1280px) {
+    padding: 24px 165px 24px 165px;
+  }
 
   // this prevents nav menu from covering nav bar
   &::after {
@@ -16,6 +21,10 @@
     height: 100%;
     background-color: $very-light-grey;
     z-index: -1;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
   }
 
   &__btn {
@@ -28,6 +37,10 @@
     border: solid 1px $dark-violet;
     background-color: transparent;
     transition: all 0.1s ease-in-out;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
 
     &.open .nav-bar__burger {
       transform: translateX(-1px);
@@ -80,21 +93,53 @@
     text-align: center;
     background-image: url(./images/bg-pattern-mobile-nav.svg);
     background-repeat: no-repeat;
-    background-position: bottom right;
+    background-position: bottom;
     background-color: $very-dark-violet;
     overflow: hidden;
     transform: translateY(-100%);
     transition: transform ease 0.5s;
+
+    @media screen and (min-width: 768px) {
+      height: auto;
+      position: static;
+      transform: translateY(0);
+      z-index: auto;
+      background: none;
+    }
+
+    &.open {
+      transform: translateY(0%);
+    }
   }
 
   &__nav-list {
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 0;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
   }
 
   &__nav-link {
     margin: 20px 5% 0 5%;
+    width: 320px;
     height: 55px;
     list-style: none;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+      margin: 0 0 0 15px;
+      height: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-left: 30px;
+    }
 
     &__hyper {
       width: 100%;
@@ -103,10 +148,41 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      color: $very-light-grey;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1em;
+        font-weight: 700;
+        color: $dark-grey-violet;
+
+        &:hover {
+          color: $very-dark-violet;
+        }
+      }
     }
 
     &--active {
       border: solid 2px $very-light-grey;
+
+      @media screen and (min-width: 768px) {
+        border-color: $very-dark-violet;
+        color: $very-dark-violet;
+        width: 120px;
+
+        .nav-bar__nav-link__hyper {
+          color: $very-dark-violet;
+
+          &:hover {
+            background: $very-dark-violet;
+            color: $very-light-grey;
+          }
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin: 0 35px;
+        width: 145px;
+      }
     }
   }
 }
