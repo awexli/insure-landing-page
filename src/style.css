@@ -13,6 +13,12 @@ body {
   height: 100%;
 }
 
+#app {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 body {
   font-size: 16px;
   font-family: "Karla", sans-serif, "DM Serif Display", serif;
@@ -20,6 +26,7 @@ body {
 
 main {
   display: grid;
+  background-color: #2d2640;
 }
 
 a {
@@ -44,7 +51,8 @@ a {
   align-items: center;
   padding: 24px;
   position: relative;
-  z-index: 1;
+  background: #fafafa;
+  z-index: 10;
 }
 @media screen and (min-width: 1280px) {
   .nav-bar {
@@ -161,10 +169,16 @@ a {
   height: 55px;
   list-style: none;
 }
+@media screen and (max-width: 320px) {
+  .nav-bar__nav-link {
+    width: 280px;
+    margin: 5px 5% 0 5%;
+  }
+}
 @media screen and (min-width: 768px) {
   .nav-bar__nav-link {
     width: auto;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 25px;
     height: 40px;
   }
 }
@@ -216,35 +230,162 @@ a {
   }
 }
 
+.img-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .img-container {
+    position: absolute;
+    right: 25px;
+    padding-top: 150px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .img-container {
+    right: 100px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .img-container {
+    right: 160px;
+  }
+}
+.img-container__family-img {
+  position: relative;
+}
+@media screen and (max-width: 320px) {
+  .img-container__family-img {
+    width: 320px;
+  }
+}
+@media screen and (min-width: 414px) {
+  .img-container__family-img {
+    width: 414px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .img-container__family-img {
+    z-index: 1;
+    width: 375px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .img-container__family-img {
+    display: block;
+    background: url(./images/image-intro-desktop.jpg) no-repeat;
+    width: 440px;
+    height: 550px;
+    padding-left: 440px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .img-container__family-img {
+    width: 540px;
+    height: 650px;
+    padding-left: 540px;
+  }
+}
+
 .intro {
   position: relative;
   height: 500px;
-  padding: 92px 25px;
+  padding: 100px 25px;
   background-color: #2d2640;
   text-align: center;
   color: #fafafa;
 }
-.intro::before {
+@media screen and (min-width: 768px) {
+  .intro {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .intro {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .intro__container {
+    height: 540px;
+    width: 330px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .intro__container {
+    width: 540px;
+    height: 330px;
+    margin-left: 150px;
+    margin-top: 100px;
+    text-align: start;
+  }
+}
+.intro__container::before {
   content: url(./images/bg-pattern-intro-left-mobile.svg);
   position: absolute;
   top: 0;
   left: 0;
 }
-.intro::after {
+@media screen and (min-width: 1280px) {
+  .intro__container::before {
+    content: url(./images/bg-pattern-intro-left-desktop.svg);
+    top: unset;
+    bottom: -335px;
+  }
+}
+.intro__container::after {
   content: url(./images/bg-pattern-intro-right-mobile.svg);
   position: absolute;
   bottom: -175px;
   right: 0;
+  z-index: 1;
+}
+@media screen and (min-width: 1280px) {
+  .intro__container::after {
+    content: url(./images/bg-pattern-intro-right-desktop.svg);
+    bottom: unset;
+    top: -70px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .intro__line {
+    position: absolute;
+    top: 150px;
+    height: 1px;
+    width: 150px;
+    background-color: #fafafa;
+    z-index: 1;
+  }
 }
 .intro__title {
   font-family: "DM Serif Display", serif;
   position: relative;
   z-index: 0;
-  max-width: 325px;
+  width: 325px;
   font-size: 2.9em;
   font-weight: 400;
   line-height: 1em;
   padding-bottom: 30px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 320px) {
+  .intro__title {
+    width: 270px;
+    font-size: 2.4em;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .intro__title {
+    margin: 0;
+    width: auto;
+    font-size: 3.3em;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .intro__title-break {
+    display: table;
+  }
 }
 .intro__description {
   font-family: "Karla", sans-serif;
@@ -261,6 +402,8 @@ a {
   border: solid 2px #fafafa;
   color: #fafafa;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,8 @@
   align-items: center;
   padding: 24px;
   position: relative;
-  z-index: 1;
+  background: $very-light-grey;
+  z-index: 10;
 
   @media screen and (min-width: 1280px) {
     padding: 24px 165px 24px 165px;
@@ -131,9 +132,14 @@
     height: 55px;
     list-style: none;
 
+    @media screen and (max-width: 320px) {
+      width: 280px;
+      margin: 5px 5% 0 5%;
+    }
+
     @media screen and (min-width: 768px) {
       width: auto;
-      margin: 0 0 0 15px;
+      margin: 0 0 0 25px;
       height: 40px;
     }
 

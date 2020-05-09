@@ -1,34 +1,99 @@
 .intro {
   position: relative;
   height: 500px;
-  padding: 92px 25px;
+  padding: 100px 25px;
   background-color: hsl(256, 26%, 20%);
   text-align: center;
   color: $very-light-grey;
 
-  &::before {
-    content: url(./images/bg-pattern-intro-left-mobile.svg);
-    position: absolute;
-    top: 0;
-    left: 0;
+  @media screen and (min-width: 768px) {
+    height: 500px;
   }
 
-  &::after {
-    content: url(./images/bg-pattern-intro-right-mobile.svg);
-    position: absolute;
-    bottom: -175px;
-    right: 0;
+  @media screen and (min-width: 1280px) {
+    height: 600px;
+  }
+
+  &__container {
+    @media screen and (min-width: 768px) {
+      height: 540px;
+      width: 330px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 540px;
+      height: 330px;
+      margin-left: 150px;
+      margin-top: 100px;
+      text-align: start;
+    }
+
+    &::before {
+      content: url(./images/bg-pattern-intro-left-mobile.svg);
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @media screen and (min-width: 1280px) {
+        content: url(./images/bg-pattern-intro-left-desktop.svg);
+        top: unset;
+        bottom: -335px;
+      }
+    }
+
+    &::after {
+      content: url(./images/bg-pattern-intro-right-mobile.svg);
+      position: absolute;
+      bottom: -175px;
+      right: 0;
+      z-index: 1;
+
+      @media screen and (min-width: 1280px) {
+        content: url(./images/bg-pattern-intro-right-desktop.svg);
+        bottom: unset;
+        top: -70px;
+      }
+    }
+  }
+
+  &__line {
+    @media screen and (min-width: 1280px) {
+      position: absolute;
+      top: 150px;
+      height: 1px;
+      width: 150px;
+      background-color: $very-light-grey;
+      z-index: 1;
+    }
   }
 
   &__title {
     font-family: 'DM Serif Display', serif;
     position: relative;
     z-index: 0;
-    max-width: 325px;
+    width: 325px;
     font-size: 2.9em;
     font-weight: 400;
     line-height: 1em;
     padding-bottom: 30px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 320px) {
+      width: 270px;
+      font-size: 2.4em;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin: 0;
+      width: auto;
+      font-size: 3.3em;
+    }
+  }
+
+  &__title-break {
+    @media screen and (min-width: 1280px) {
+      display: table;
+    }
   }
 
   &__description {
@@ -47,5 +112,7 @@
     border: solid 2px $very-light-grey;
     color: $very-light-grey;
     text-transform: uppercase;
+    position: relative;
+    z-index: 1;
   }
 }

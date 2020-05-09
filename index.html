@@ -16,19 +16,28 @@
     <div id="app">
       <nav-bar></nav-bar>
       <main>
-        <img
-          class="family-img"
-          src="./src/images/image-intro-mobile.jpg"
-          alt="Family image"
-        />
+        <div class="img-container">
+          <img
+            class="img-container__family-img"
+            src="./src/images/image-intro-mobile.jpg"
+            alt="Family image"
+          />
+        </div>
+
         <section class="intro">
-          <h2 class="intro__title">Humanizing your insurance.</h2>
-          <p class="intro__description">
-            Get your life insurance coverage easier and faster. We blend our
-            expertise and technology to help you find the plan that’s right for
-            you. Ensure you and your loved ones are protected.
-          </p>
-          <button class="btn intro__btn" type="button">View plans</button>
+          <div class="intro__container">
+            <div class="intro__line"></div>
+            <h2 class="intro__title">
+              Humanizing
+              <span class="intro__title-break">your insurance.</span>
+            </h2>
+            <p class="intro__description">
+              Get your life insurance coverage easier and faster. We blend our
+              expertise and technology to help you find the plan that’s right
+              for you. Ensure you and your loved ones are protected.
+            </p>
+            <button class="btn intro__btn" type="button">View plans</button>
+          </div>
         </section>
       </main>
     </div>

@@ -1,0 +1,52 @@
+.img-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 25px;
+    padding-top: 150px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    right: 160px;
+  }
+
+  &__family-img {
+    position: relative;
+
+    // don't know why intro section's width
+    // is tied to the width of family-img
+    @media screen and (max-width: 320px) {
+      width: 320px;
+    }
+
+    @media screen and (min-width: 414px) {
+      width: 414px;
+    }
+
+    @media screen and (min-width: 768px) {
+      z-index: 1;
+      width: 375px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+      background: url(./images/image-intro-desktop.jpg) no-repeat;
+      width: 440px;
+      height: 550px;
+      padding-left: 440px; // push prev image out of the way
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 540px;
+      height: 650px;
+      padding-left: 540px; // push prev image out of the way
+    }
+  }
+}
