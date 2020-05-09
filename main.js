@@ -63,22 +63,18 @@ let isDropdownPressed = false;
 const navMenu = document.querySelector('nav');
 const navBtn = document.querySelector('.nav-bar__btn');
 const body = document.body;
-document.body.addEventListener('click', (e) => {
-  if (
-    e.target.className == 'nav-bar__btn' ||
-    e.target.className == 'nav-bar__burger'
-  ) {
-    if (!isDropdownPressed) {
-      navMenu.style.transform = 'translateY(0%)';
-      // prevent user from scrolling
-      body.style.overflowY = 'hidden';
-      navBtn.classList.add('open');
-      isDropdownPressed = true;
-    } else if (isDropdownPressed) {
-      navMenu.style.transform = 'translateY(-100%)';
-      body.style.overflowY = 'unset';
-      navBtn.classList.remove('open');
-      isDropdownPressed = false;
-    }
+
+navBtn.addEventListener('click', (e) => {
+  if (!isDropdownPressed) {
+    navMenu.style.transform = 'translateY(0%)';
+    // prevent user from scrolling
+    body.style.overflowY = 'hidden';
+    navBtn.classList.add('open');
+    isDropdownPressed = true;
+  } else if (isDropdownPressed) {
+    navMenu.style.transform = 'translateY(-100%)';
+    body.style.overflowY = 'unset';
+    navBtn.classList.remove('open');
+    isDropdownPressed = false;
   }
 });
