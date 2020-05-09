@@ -63,7 +63,7 @@ a {
   width: 32px;
   border: solid 1px black;
   background-color: transparent;
-  transition: all 0.5 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .nav-bar__btn.open .nav-bar__burger {
   transform: translateX(-32px);
@@ -80,7 +80,7 @@ a {
   height: 2px;
   background: black;
   border-radius: 5px;
-  transition: all 0.5 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .nav-bar__burger::before, .nav-bar__burger::after {
   content: "";
@@ -89,7 +89,7 @@ a {
   height: 2px;
   background: black;
   border-radius: 5px;
-  transition: all 0.5 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .nav-bar__burger::before {
   transform: translateY(-5px);
