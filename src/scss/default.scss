@@ -11,11 +11,19 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
+main {
+  display: grid;
+}
+
 a {
   color: hsl(0, 0%, 98%);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 400;
+}
+
+.family-img {
+  margin: 0 auto;
 }
 
 .attribution {

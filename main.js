@@ -1,54 +1,56 @@
 Vue.component('nav-bar', {
   template: `
   <div class="nav-bar"> 
-    <div class="nav-bar__logo">
-      <img :src="logo.source" :alt="logo.alt" />
+    <img :src="logo.source" :alt="logo.alt" />
+    <div class="nav-bar__btn" type="button">
+      <div class="nav-bar__burger"></div>
     </div>
-    <div class="nav-bar__dropdown">
-      <button class="nav-bar__btn" type="button">Menu</button>
-      <nav>
-        <nav-link :text="link.text[0]"></nav-link>
-        <nav-link :text="link.text[1]"></nav-link>
-        <nav-link :text="link.text[2]"></nav-link>
-        <nav-link :text="link.text[3]" :class="activeClass"></nav-link>
-      </nav>
-    </div>
+    <nav class="nav-bar__nav-menu">
+      <nav-list></nav-list>
+    </nav>
   </div>`,
+  data() {
+    return {
+      logo: {
+        source: './src/images/logo.svg',
+        alt: 'logo',
+      },
+    };
+  },
+});
+
+Vue.component('nav-list', {
+  template: `
+  <ul class="nav-bar__nav-list">
+    <li class="nav-bar__nav-link">
+      <a :href="link.path" class="nav-bar__nav-link__hyper">
+        <span>{{ link.text[0] }}</span>
+      </a>
+    </li>
+    <li class="nav-bar__nav-link">
+      <a :href="link.path" class="nav-bar__nav-link__hyper">
+        <span>{{ link.text[1] }}</span>
+      </a>
+    </li>
+    <li class="nav-bar__nav-link">
+      <a :href="link.path" class="nav-bar__nav-link__hyper">
+        <span>{{ link.text[2] }}</span>
+      </a>
+    </li>
+    <li class="nav-bar__nav-link">
+      <a :href="link.path" class="nav-bar__nav-link__hyper" :class="activeClass">
+        <span>{{ link.text[3] }}</span>
+      </a>
+    </li>
+  </ul>`,
   data() {
     return {
       link: {
         text: ['how we work', 'blog', 'account', 'view plans'],
         path: '#',
       },
-      logo: {
-        source: './src/images/logo.svg',
-        alt: 'logo',
-      },
       activeClass: 'nav-bar__nav-link--active',
     };
-  },
-});
-
-Vue.component('nav-link', {
-  props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    path: {
-      type: String,
-      required: true,
-      default: '#',
-    },
-  },
-  template: `
-  <div class="nav-bar__nav-link">
-    <a :href="path" class="nav-bar__nav-link__hyper">
-      <span>{{ text }}</span>
-    </a>
-  </div>`,
-  data() {
-    return {};
   },
 });
 
@@ -59,14 +61,24 @@ const app = new Vue({
 
 let isDropdownPressed = false;
 const navMenu = document.querySelector('nav');
+const navBtn = document.querySelector('.nav-bar__btn');
+const body = document.body;
 document.body.addEventListener('click', (e) => {
-  if (e.target.className == 'nav-bar__btn') {
+  if (
+    e.target.className == 'nav-bar__btn' ||
+    e.target.className == 'nav-bar__burger'
+  ) {
     if (!isDropdownPressed) {
-      navMenu.style.height = '450px';
+      navMenu.style.transform = 'translateY(0%)';
+      // prevent user from scrolling
+      body.style.overflowY = 'hidden';
+      navBtn.classList.add('open');
       isDropdownPressed = true;
+    } else if (isDropdownPressed) {
+      navMenu.style.transform = 'translateY(-100%)';
+      body.style.overflowY = 'unset';
+      navBtn.classList.remove('open');
+      isDropdownPressed = false;
     }
-  } else if (isDropdownPressed) {
-    navMenu.style.height = '0%';
-    isDropdownPressed = false;
   }
 });

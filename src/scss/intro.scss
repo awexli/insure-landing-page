@@ -1,0 +1,13 @@
+.intro {
+  height: 500px;
+  padding: 100px 30px;
+  background-color: hsl(256, 26%, 20%);
+  position: relative;
+
+  &::before {
+    content: url(./images/bg-pattern-intro-left-mobile.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
