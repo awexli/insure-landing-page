@@ -1,60 +1,50 @@
-Vue.component('navbar', {
+Vue.component('nav-bar', {
   template: `
-  <div class="navbar"> 
-    <div class="logo-wrapper">
+  <div class="nav-bar"> 
+    <div class="nav-bar__logo">
       <img :src="logo.source" :alt="logo.alt" />
     </div>
-    <div class="dropdown">
-      <button class="dropdown-btn" type="button">
-        Menu
-      </button>
+    <div class="nav-bar__dropdown">
+      <button class="nav-bar__btn" type="button">Menu</button>
       <nav>
-        <nav-link :linkText="linkA.text" :linkPath="linkA.path"></nav-link>
-        <nav-link :linkText="linkB.text"></nav-link>
-        <nav-link :linkText="linkC.text"></nav-link>
-        <nav-link :linkText="linkD.text"></nav-link>
+        <nav-link :text="link.text[0]"></nav-link>
+        <nav-link :text="link.text[1]"></nav-link>
+        <nav-link :text="link.text[2]"></nav-link>
+        <nav-link :text="link.text[3]" :class="activeClass"></nav-link>
       </nav>
     </div>
   </div>`,
   data() {
     return {
-      linkA: {
-        text: 'how we work',
-        path: 'https://vuejs.org/v2/guide/components-props.html',
-      },
-      linkB: {
-        text: 'blog',
-      },
-      linkC: {
-        text: 'account',
-      },
-      linkD: {
-        text: 'view plans',
+      link: {
+        text: ['how we work', 'blog', 'account', 'view plans'],
+        path: '#',
       },
       logo: {
         source: './src/images/logo.svg',
         alt: 'logo',
       },
+      activeClass: 'nav-bar__nav-link--active',
     };
   },
 });
 
 Vue.component('nav-link', {
   props: {
-    linkText: {
+    text: {
       type: String,
       required: true,
     },
-    linkPath: {
+    path: {
       type: String,
       required: true,
       default: '#',
     },
   },
   template: `
-  <div class="nav-link-wrapper">
-    <a :href="linkPath" class="nav-link">
-      <span>{{ linkText }}</span>
+  <div class="nav-bar__nav-link">
+    <a :href="path" class="nav-bar__nav-link__hyper">
+      <span>{{ text }}</span>
     </a>
   </div>`,
   data() {
@@ -68,14 +58,15 @@ const app = new Vue({
 });
 
 let isDropdownPressed = false;
+const navMenu = document.querySelector('nav');
 document.body.addEventListener('click', (e) => {
-  if (e.target.className == 'dropdown-btn') {
+  if (e.target.className == 'nav-bar__btn') {
     if (!isDropdownPressed) {
-      document.querySelector('nav').style.height = '450px';
+      navMenu.style.height = '450px';
       isDropdownPressed = true;
     }
   } else if (isDropdownPressed) {
-    document.querySelector('nav').style.height = '0%';
+    navMenu.style.height = '0%';
     isDropdownPressed = false;
   }
 });
