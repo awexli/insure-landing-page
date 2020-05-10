@@ -11,20 +11,24 @@ body {
   height: 100%;
 }
 
+body {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+}
+
 #app {
   position: relative;
   max-width: 1440px;
   margin: 0 auto;
 }
 
-body {
-  font-size: 16px;
-  font-family: 'Karla', sans-serif, 'DM Serif Display', serif;
-}
-
 main {
   display: grid;
-  background-color: $dark-violet;
+}
+
+.heading {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
 }
 
 a {
