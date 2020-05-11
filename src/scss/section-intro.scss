@@ -31,21 +31,15 @@
     }
 
     @media screen and (min-width: 1024px) {
-      width: auto;
-      // default-margin + img-width + 1em
-      margin-right: calc(10% + 375px + 1em);
+      width: 40%;
       margin-left: $default-margin;
     }
 
     @media screen and (min-width: 1280px) {
-      // default-margin + img-width + 1em
-      margin-right: calc(10% + 440px + 1em);
       margin-top: 100px;
     }
 
     @media screen and (min-width: 1440px) {
-      // default-margin + img-width + 1.2em
-      margin-right: calc(10% + 540px + 1.2em);
       margin-top: 100px;
     }
 

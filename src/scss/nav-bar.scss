@@ -3,13 +3,13 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  padding: 24px;
+  padding: 25px;
   position: relative;
   background: $very-light-grey;
   z-index: 10;
 
   @media screen and (min-width: 1024px) {
-    padding: 24px $default-padding;
+    padding: 25px $default-padding;
   }
 
   // this prevents nav menu from covering nav bar
