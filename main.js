@@ -119,8 +119,8 @@ Vue.component('section-two-card', {
   <div class="s2__card">
     <img
       class="s2__card-icon"
-      :src="source"
-      :alt="altText"
+      v-bind:src="source"
+      v-bind:alt="altText"
     />
     <h3 class="s2__card-title heading">{{ title }}</h3>
     <p class="s2__card-description">{{ description }}</p>
@@ -137,24 +137,24 @@ Vue.component('section-two', {
     <h2 class="s2__title heading">{{ title }}</h2>
     <div class="s2__card-container">
       <section-two-card 
-      :title="card.title.snappy"
-      :description="card.description.snappy"
-      :source="card.source.snappy"
-      :altText="card.altText.snappy"
+      v-bind:title="card.title.snappy"
+      v-bind:description="card.description.snappy"
+      v-bind:source="card.source.snappy"
+      v-bind:altText="card.altText.snappy"
       ></section-two-card>
 
       <section-two-card 
-      :title="card.title.affordable"
-      :description="card.description.affordable"
-      :source="card.source.affordable"
-      :altText="card.altText.affordable"
+      v-bind:title="card.title.affordable"
+      v-bind:description="card.description.affordable"
+      v-bind:source="card.source.affordable"
+      v-bind:altText="card.altText.affordable"
       ></section-two-card>
 
       <section-two-card 
-      :title="card.title.people"
-      :description="card.description.people"
-      :source="card.source.people"
-      :altText="card.altText.people"
+      v-bind:title="card.title.people"
+      v-bind:description="card.description.people"
+      v-bind:source="card.source.people"
+      v-bind:altText="card.altText.people"
       ></section-two-card>
     </div>
   </section>
@@ -235,8 +235,8 @@ Vue.component('family-photo', {
   <div class="img-container">
     <img
       class="img-container__family-img"
-      :src="image.source"
-      :alt="image.alt"
+      v-bind:src="image.source"
+      v-bind:alt="image.alt"
     />
   </div>`,
   data() {
@@ -253,25 +253,25 @@ Vue.component('nav-list', {
   template: `
   <ul class="nav-bar__nav-list">
     <li class="nav-bar__nav-link">
-      <a :href="link.path" class="nav-bar__nav-link__hyper">
+      <a v-bind:href="link.path" class="nav-bar__nav-link__hyper">
         <span>{{ link.text[0] }}</span>
       </a>
     </li>
     <li class="nav-bar__nav-link">
-      <a :href="link.path" class="nav-bar__nav-link__hyper">
+      <a v-bind:href="link.path" class="nav-bar__nav-link__hyper">
         <span>{{ link.text[1] }}</span>
       </a>
     </li>
     <li class="nav-bar__nav-link">
-      <a :href="link.path" class="nav-bar__nav-link__hyper">
+      <a v-bind:href="link.path" class="nav-bar__nav-link__hyper">
         <span>{{ link.text[2] }}</span>
       </a>
     </li>
     <li class="nav-bar__nav-link">
       <a 
-      :href="link.path" 
+      v-bind:href="link.path" 
       class="nav-bar__nav-link__hyper" 
-      :class="activeClass">
+      v-bind:class="activeClass">
         <span>{{ link.text[3] }}</span>
       </a>
     </li>
@@ -290,10 +290,10 @@ Vue.component('nav-list', {
 Vue.component('nav-bar', {
   template: `
   <div class="nav-bar"> 
-    <img :src="logo.source" :alt="logo.alt" />
-    <div class="nav-bar__btn" type="button">
+    <img v-bind:src="logo.source" v-bind:alt="logo.alt" />
+    <a class="nav-bar__btn" role="button" tabindex="0">
       <div class="nav-bar__burger"></div>
-    </div>
+    </a>
     <nav class="nav-bar__nav-menu">
       <nav-list></nav-list>
     </nav>
@@ -319,20 +319,41 @@ const app = new Vue({
   const navBtn = document.querySelector('.nav-bar__btn');
   const body = document.body;
 
+  // code from css-tricks
+  const showMenu = () => {
+    navMobile.classList.add('open');
+    navBtn.classList.add('active');
+    const scrollY = document.documentElement.style.getPropertyValue(
+      '--scroll-y'
+    );
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}`;
+  };
+
+  // code from css-tricks
+  const closeMenu = () => {
+    const scrollY = body.style.top;
+    body.style.position = '';
+    body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    navMobile.classList.remove('open');
+    navBtn.classList.remove('active');
+  };
+
+  // code from css-tricks
+  window.addEventListener('scroll', () => {
+    document.documentElement.style.setProperty(
+      '--scroll-y',
+      `${window.scrollY}px`
+    );
+  });
+
   navBtn.addEventListener('click', (e) => {
     if (!isDropdownPressed) {
-      // prevent user from scrolling
-      body.style.overflowY = 'hidden';
-      navMobile.classList.add('open');
-      document.querySelector('.open').ontouchend = (e) => {
-        e.preventDefault();
-      };
-      navBtn.classList.add('active');
+      showMenu();
       isDropdownPressed = true;
     } else if (isDropdownPressed) {
-      body.style.overflowY = '';
-      navMobile.classList.remove('open');
-      navBtn.classList.remove('active');
+      closeMenu();
       isDropdownPressed = false;
     }
   });
