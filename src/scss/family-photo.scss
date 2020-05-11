@@ -24,7 +24,10 @@
     // is tied to the width of family-img
     @media screen and (max-width: 320px) {
       width: 320px;
-      height: 100%;
+    }
+
+    @media screen and (max-width: 414px) {
+      width: 414px;
     }
 
     @media screen and (min-width: 768px) {

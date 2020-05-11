@@ -16,6 +16,7 @@ body {
 body {
   font-size: 16px;
   font-family: "Karla", sans-serif;
+  position: relative;
 }
 
 #app {
@@ -74,7 +75,7 @@ a {
   width: 100%;
   align-items: center;
   padding: 25px;
-  position: relative;
+  position: sticky;
   background: #fafafa;
   z-index: 10;
 }
@@ -281,7 +282,11 @@ a {
 @media screen and (max-width: 320px) {
   .img-container__family-img {
     width: 320px;
-    height: 100%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .img-container__family-img {
+    width: 414px;
   }
 }
 @media screen and (min-width: 768px) {
