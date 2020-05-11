@@ -116,14 +116,14 @@ a {
     display: none;
   }
 }
-.nav-bar__btn.open .nav-bar__burger {
+.nav-bar__btn.active .nav-bar__burger {
   transform: translateX(-1px);
   background: transparent;
 }
-.nav-bar__btn.open .nav-bar__burger::before {
+.nav-bar__btn.active .nav-bar__burger::before {
   transform: rotate(45deg) translate(1px, -1px);
 }
-.nav-bar__btn.open .nav-bar__burger::after {
+.nav-bar__btn.active .nav-bar__burger::after {
   transform: rotate(-45deg) translate(1px, 1px);
 }
 .nav-bar__burger {

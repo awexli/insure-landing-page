@@ -327,12 +327,12 @@ const app = new Vue({
       document.querySelector('.open').ontouchend = (e) => {
         e.preventDefault();
       };
-      navBtn.classList.add('open');
+      navBtn.classList.add('active');
       isDropdownPressed = true;
     } else if (isDropdownPressed) {
       body.style.overflowY = '';
       navMobile.classList.remove('open');
-      navBtn.classList.remove('open');
+      navBtn.classList.remove('active');
       isDropdownPressed = false;
     }
   });

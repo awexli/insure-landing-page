@@ -44,7 +44,7 @@
       display: none;
     }
 
-    &.open .nav-bar__burger {
+    &.active .nav-bar__burger {
       transform: translateX(-1px);
       background: transparent;
 
