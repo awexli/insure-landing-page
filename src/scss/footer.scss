@@ -43,6 +43,12 @@ footer {
 
   &__icon {
     margin-right: 15px;
+    cursor: pointer;
+    transition: ease 0.2s;
+
+    &:hover {
+      filter: brightness(40%);
+    }
 
     &:last-child {
       margin-right: 0;
@@ -85,8 +91,8 @@ footer {
     margin-bottom: 1em;
     color: $dark-violet;
 
-    &:last-child {
-      margin-bottom: 0;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

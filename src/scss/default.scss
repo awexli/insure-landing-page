@@ -41,17 +41,26 @@ main {
   border: solid 2px $very-light-grey;
   color: $very-light-grey;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: background ease 0.2s, color ease 0.2s;
+
+  &:hover {
+    background-color: $very-light-grey;
+    color: $dark-violet;
+  }
 }
 
 a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .attribution {
   font-size: 11px;
   text-align: center;
+  margin-top: 5em;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);

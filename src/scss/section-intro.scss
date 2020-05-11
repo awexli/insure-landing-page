@@ -8,10 +8,7 @@
 
   @media screen and (min-width: 768px) {
     height: 500px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    padding: $default-padding 0;
+    padding: $default-padding $default-padding;
   }
 
   @media screen and (min-width: 1280px) {
@@ -27,7 +24,7 @@
     @media screen and (min-width: 768px) {
       align-items: start;
       text-align: start;
-      width: 330px;
+      width: 45%;
     }
 
     @media screen and (min-width: 1024px) {

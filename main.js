@@ -37,8 +37,11 @@ Vue.component('nav-list', {
         <span>{{ link.text[2] }}</span>
       </a>
     </li>
-    <li class="nav-bar__nav-link" :class="activeClass">
-      <a :href="link.path" class="nav-bar__nav-link__hyper">
+    <li class="nav-bar__nav-link">
+      <a 
+      :href="link.path" 
+      class="nav-bar__nav-link__hyper" 
+      :class="activeClass">
         <span>{{ link.text[3] }}</span>
       </a>
     </li>
