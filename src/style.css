@@ -107,6 +107,7 @@ a {
   position: relative;
   height: 32px;
   width: 32px;
+  outline: none;
   border: solid 1px #2d2640;
   background-color: transparent;
   transition: all 0.1s ease-in-out;
