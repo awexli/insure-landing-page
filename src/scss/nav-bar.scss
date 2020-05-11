@@ -8,8 +8,8 @@
   background: $very-light-grey;
   z-index: 10;
 
-  @media screen and (min-width: 1280px) {
-    padding: 24px 165px 24px 165px;
+  @media screen and (min-width: 1024px) {
+    padding: 24px $default-padding;
   }
 
   // this prevents nav menu from covering nav bar
@@ -186,7 +186,7 @@
       }
 
       @media screen and (min-width: 1280px) {
-        margin: 0 35px;
+        margin-left: 35px;
         width: 145px;
       }
     }

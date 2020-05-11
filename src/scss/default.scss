@@ -31,6 +31,18 @@ main {
   font-weight: 400;
 }
 
+.btn {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  width: 150px;
+  height: 40px;
+  background: transparent;
+  border-style: none;
+  border: solid 2px $very-light-grey;
+  color: $very-light-grey;
+  text-transform: uppercase;
+}
+
 a {
   text-decoration: none;
   text-transform: uppercase;

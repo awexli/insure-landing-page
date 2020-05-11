@@ -10,26 +10,42 @@
     height: 500px;
   }
 
+  @media screen and (min-width: 1024px) {
+    padding: $default-padding 0;
+  }
+
   @media screen and (min-width: 1280px) {
+    padding: 75px 25px;
     height: 600px;
   }
 
   &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     @media screen and (min-width: 768px) {
-      height: 540px;
+      align-items: start;
+      text-align: start;
       width: 330px;
     }
 
     @media screen and (min-width: 1024px) {
-      height: 330px;
-      width: 440px;
-      margin-left: 150px;
-      margin-top: 50px;
-      text-align: start;
+      width: auto;
+      // default-margin + img-width + 1em
+      margin-right: calc(10% + 375px + 1em);
+      margin-left: $default-margin;
     }
 
     @media screen and (min-width: 1280px) {
-      width: 540px;
+      // default-margin + img-width + 1em
+      margin-right: calc(10% + 440px + 1em);
+      margin-top: 100px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      // default-margin + img-width + 1.2em
+      margin-right: calc(10% + 540px + 1.2em);
       margin-top: 100px;
     }
 
@@ -79,16 +95,17 @@
     font-size: 2.9em;
     line-height: 1em;
     padding-bottom: 30px;
-    margin: 0 auto;
+    text-align: center;
 
     @media screen and (max-width: 320px) {
       width: 270px;
       font-size: 2.4em;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
       margin: 0;
       width: auto;
+      text-align: initial;
     }
 
     @media screen and (min-width: 1280px) {
@@ -97,7 +114,7 @@
   }
 
   &__title-break {
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1024px) {
       display: table;
     }
   }
@@ -106,18 +123,10 @@
     font-family: 'Karla', sans-serif; // make reusable btn
     line-height: 1.5em;
     padding-bottom: 30px;
+    width: 100%;
   }
 
   &__btn {
-    font-family: 'Karla', sans-serif; // make reusable btn
-    font-weight: 700;
-    width: 150px;
-    height: 40px;
-    background: transparent;
-    border-style: none;
-    border: solid 2px $very-light-grey;
-    color: $very-light-grey;
-    text-transform: uppercase;
     position: relative;
     z-index: 1;
   }

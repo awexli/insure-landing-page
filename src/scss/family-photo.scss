@@ -1,21 +1,16 @@
 .img-container {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
     position: absolute;
     right: 25px;
-    padding-top: 125px;
+    padding-top: $default-padding;
   }
 
-  @media screen and (min-width: 1280px) {
-    right: 100px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    right: 160px;
+  @media screen and (min-width: 1024px) {
+    right: $default-margin;
   }
 
   &__family-img {
@@ -25,10 +20,7 @@
     // is tied to the width of family-img
     @media screen and (max-width: 320px) {
       width: 320px;
-    }
-
-    @media screen and (min-width: 414px) {
-      width: 414px;
+      height: 100%;
     }
 
     @media screen and (min-width: 768px) {
@@ -37,7 +29,6 @@
     }
 
     @media screen and (min-width: 1280px) {
-      display: block;
       background: url(./images/image-intro-desktop.jpg) no-repeat;
       width: 440px;
       height: 550px;

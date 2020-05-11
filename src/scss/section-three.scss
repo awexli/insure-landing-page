@@ -1,0 +1,73 @@
+.s3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark-violet;
+  height: 350px;
+  margin: 100px $default-margin;
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: 320px) {
+    margin: 50px 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: unset;
+    height: 250px;
+    margin: 100px 35px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 100px $default-margin;
+  }
+
+  @media screen and (min-width: 1280px) {
+    align-items: unset;
+    height: 250px;
+  }
+
+  &::after {
+    content: url(./images/bg-pattern-how-we-work-mobile.svg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    @media screen and (min-width: 768px) {
+      content: url(./images/bg-pattern-how-we-work-desktop.svg);
+    }
+  }
+
+  &__content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 25px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      text-align: start;
+      padding: 50px $default-padding;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: 2.5em;
+    color: $very-light-grey;
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      width: 350px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 3em;
+      width: 420px;
+    }
+  }
+}
