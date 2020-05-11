@@ -75,8 +75,9 @@ a {
   width: 100%;
   align-items: center;
   padding: 25px;
-  position: sticky;
   background: #fafafa;
+  position: sticky;
+  top: 0;
   z-index: 10;
 }
 @media screen and (min-width: 1024px) {
@@ -284,7 +285,7 @@ a {
     width: 320px;
   }
 }
-@media screen and (max-width: 414px) {
+@media screen and (min-width: 414px) {
   .img-container__family-img {
     width: 414px;
   }

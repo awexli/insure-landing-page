@@ -324,10 +324,13 @@ const app = new Vue({
       // prevent user from scrolling
       body.style.overflowY = 'hidden';
       navMobile.classList.add('open');
+      document.querySelector('.open').ontouchend = (e) => {
+        e.preventDefault();
+      };
       navBtn.classList.add('open');
       isDropdownPressed = true;
     } else if (isDropdownPressed) {
-      body.style.overflowY = 'unset';
+      body.style.overflowY = '';
       navMobile.classList.remove('open');
       navBtn.classList.remove('open');
       isDropdownPressed = false;

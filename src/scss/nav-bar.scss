@@ -4,8 +4,9 @@
   width: 100%;
   align-items: center;
   padding: 25px;
-  position: sticky;
   background: $very-light-grey;
+  position: sticky;
+  top: 0;
   z-index: 10;
 
   @media screen and (min-width: 1024px) {
