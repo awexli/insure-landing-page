@@ -9,7 +9,7 @@ Thanks for checking out this front-end coding challenge.
 [Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow.
 
 ## What I learned  
-- Vue (Basic/Newbie usage)
+- Vue (Basic)
   - Components
   - Props
   - List Rendering
@@ -17,6 +17,7 @@ Thanks for checking out this front-end coding challenge.
 - Hamburger menu & animation
 - z-index
 - Prevent body scrolling in dropdown menu
+- BEM (Block Element Modifier)
 
 ## Utilized
 - Vue.js
